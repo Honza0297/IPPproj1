@@ -1,2 +1,18 @@
-.IPP2019
-MOVE &sdfasd asdfjn
+.IPPcode19
+DEFVAR GF@counter
+MOVE GF@counter string@ 
+LABEL while #sdjkgh
+
+
+
+#coo
+
+
+
+JUMPIFEQ end GF@counter string@aaa
+WRITE string@counter\032 
+WRITE GF@counter
+WRITE string@\010
+CONCAT GF@counter GF@counter string@a
+JUMP while
+LABEL end
