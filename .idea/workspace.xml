@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5ddeb2d-fae2-41a6-bf3c-1480db107593" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser.php" beforeDir="false" afterPath="$PROJECT_DIR$/parser.php" afterDir="false" />
@@ -17,8 +18,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="333">
+              <caret line="319" column="6" selection-start-line="319" selection-start-column="6" selection-end-line="319" selection-end-column="6" />
+              <folding>
+                <element signature="e#6#145#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -28,6 +32,19 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>preg</find>
+      <find>check_syntax</find>
+      <find>label</find>
+      <find>literal</find>
+      <find>two_op</find>
+      <find>check</find>
+      <find>three</find>
+      <find>two</find>
+      <find>thre</find>
+      <find>print(&quot;m</find>
+      <find>throw</find>
+      <find>preg_repla</find>
+      <find>prin</find>
+      <find>print_r</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -43,10 +60,11 @@
   <component name="PhpServers">
     <servers />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="1541" />
-    <option name="height" value="1045" />
+    <option name="x" value="949" />
+    <option name="width" value="978" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -56,6 +74,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -67,11 +86,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/parser.php" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
@@ -87,6 +106,11 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="IPPproj1" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/parser.php">
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -105,23 +129,29 @@
       <workItem from="1550567039009" duration="9151000" />
       <workItem from="1550659476255" duration="13000" />
       <workItem from="1550827639999" duration="232000" />
-      <workItem from="1550830112775" duration="8577000" />
+      <workItem from="1550830112775" duration="8676000" />
+      <workItem from="1550868907822" duration="1907000" />
+      <workItem from="1551004247805" duration="1720000" />
+      <workItem from="1551015139657" duration="7479000" />
+      <workItem from="1551027041682" duration="1457000" />
+      <workItem from="1551078085188" duration="6499000" />
+      <workItem from="1551096741247" duration="351000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21653000" />
+    <option name="totallyTimeSpent" value="41165000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1753" height="954" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.033038348" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12153392" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.490887" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -129,11 +159,11 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.19198056" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.45078978" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24955752" />
       <window_info anchor="right" id="Database" order="3" />
     </layout>
   </component>
@@ -143,8 +173,11 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/parser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="333">
+          <caret line="319" column="6" selection-start-line="319" selection-start-column="6" selection-end-line="319" selection-end-column="6" />
+          <folding>
+            <element signature="e#6#145#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
