@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e5ddeb2d-fae2-41a6-bf3c-1480db107593" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser.php" beforeDir="false" afterPath="$PROJECT_DIR$/parser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/parser.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/xberan43.zip" beforeDir="false" afterPath="$PROJECT_DIR$/release/xberan43.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parser.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,14 +14,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/parser.php">
+        <entry file="file://$PROJECT_DIR$/parse.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="367" column="24" lean-forward="true" selection-start-line="367" selection-start-column="24" selection-end-line="367" selection-end-column="24" />
-              <folding>
-                <element signature="n#check_header#0;n#!!top" />
-                <element signature="n#check_num_of_operands#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="312">
+              <caret line="347" selection-start-line="347" selection-end-line="347" />
             </state>
           </provider>
         </entry>
@@ -57,6 +50,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/parser.php" />
+        <option value="$PROJECT_DIR$/parse.php" />
       </list>
     </option>
   </component>
@@ -65,10 +59,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="352" />
-    <option name="y" value="-10" />
-    <option name="width" value="982" />
-    <option name="height" value="1053" />
+    <option name="x" value="351" />
+    <option name="y" value="-12" />
+    <option name="width" value="983" />
+    <option name="height" value="1054" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -78,7 +72,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -90,6 +83,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -144,22 +138,23 @@
       <workItem from="1551263539423" duration="6551000" />
       <workItem from="1551274489727" duration="11000" />
       <workItem from="1551274509903" duration="2003000" />
+      <workItem from="1551279285411" duration="1049000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51833000" />
+    <option name="totallyTimeSpent" value="53310000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1753" height="954" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1262537" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12743363" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2563791" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2563791" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.399757" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -181,12 +176,20 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/parser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="367" column="24" lean-forward="true" selection-start-line="367" selection-start-column="24" selection-end-line="367" selection-end-column="24" />
+        <state relative-caret-position="969">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
           <folding>
-            <element signature="n#check_header#0;n#!!top" />
+            <element signature="n#blankline#0;n#!!top" />
+            <element signature="n#throw_err#0;n#!!top" />
             <element signature="n#check_num_of_operands#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parse.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="347" selection-start-line="347" selection-end-line="347" />
         </state>
       </provider>
     </entry>
