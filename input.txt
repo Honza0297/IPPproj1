@@ -1,6 +1,6 @@
 .ippcode19
 DEFVAR GF@counter
-MOVE GF@counter string@sd<>&f
+MOVE GF@counter string@sd><f
 LABEL while #sdjkgh
 JUMPIFEQ end GF@counter string@aaa
 WRITE string@counter\032 

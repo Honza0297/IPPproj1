@@ -347,7 +347,21 @@ function add_argument(object $instruction, $argname, $arg_value)
     $arg->addAttribute("type",$type);
 }
 
+/**
+ * Checks for --help
+ * @param $argv
+ */
+function check_help($argv)
+{
+    if(count($argv) == 2 && $argv[1] == "--help")
+    {
+        print("This is a help for parser.php\n");
+        print("Application converts code in IPPcode19 from STDIN to its XML representation and prints it on STDOUT.");
+    }
+}
 
+
+check_help($argv);
 //Start reading from STDIN and check for header .IPPcode19
 $f = fopen( 'php://stdin', 'r' );
     /*For long code use this and paste the code to input.txt file:
