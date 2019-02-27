@@ -349,10 +349,10 @@ function add_argument(object $instruction, $argname, $arg_value)
 
 
 //Start reading from STDIN and check for header .IPPcode19
-//$f = fopen( 'php://stdin', 'r' );
+$f = fopen( 'php://stdin', 'r' );
     /*For long code use this and paste the code to input.txt file:
         only for dev, will be deleted*/
-    $f = fopen( 'input.txt', 'r' );
+    //$f = fopen( 'input.txt', 'r' );
 $xml_output = new SimpleXMLElement("<?xml version=\"1.0\" encoding=\"utf-8\"?><program language='IPPcode19'></program>"); //set xml output
 
 //Checking header

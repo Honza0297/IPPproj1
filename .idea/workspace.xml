@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e5ddeb2d-fae2-41a6-bf3c-1480db107593" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parser.php" beforeDir="false" afterPath="$PROJECT_DIR$/parser.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-588">
-              <caret line="342" column="1" selection-start-line="342" selection-start-column="1" selection-end-line="342" selection-end-column="1" />
+            <state relative-caret-position="190">
+              <caret line="351" selection-start-line="351" selection-end-line="351" />
               <folding>
                 <element signature="n#check_header#0;n#!!top" />
                 <element signature="n#check_num_of_operands#0;n#!!top" />
@@ -140,17 +139,18 @@
       <workItem from="1551203617452" duration="600000" />
       <workItem from="1551263539423" duration="6551000" />
       <workItem from="1551274489727" duration="11000" />
+      <workItem from="1551274509903" duration="285000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49016000" />
+    <option name="totallyTimeSpent" value="49301000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1753" height="954" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12507375" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1262537" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -177,8 +177,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/parser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-588">
-          <caret line="342" column="1" selection-start-line="342" selection-start-column="1" selection-end-line="342" selection-end-column="1" />
+        <state relative-caret-position="190">
+          <caret line="351" selection-start-line="351" selection-end-line="351" />
           <folding>
             <element signature="n#check_header#0;n#!!top" />
             <element signature="n#check_num_of_operands#0;n#!!top" />
