@@ -286,9 +286,6 @@ function arg_get_value($str, $type)
     else
     {
         preg_match("((?<=@).+)", $str, $match);
-        $match[0] = str_replace("&", "&amp", $match[0]);
-        $match[0] = str_replace("<", "&lt", $match[0]);
-        $match[0] = str_replace(">", "&gt", $match[0]);
         return $match[0];
     }
 }
@@ -350,25 +347,12 @@ function add_argument(object $instruction, $argname, $arg_value)
     $arg->addAttribute("type",$type);
 }
 
-/**
- * Checks if there is a --help option
- */
-function check_help($argv)
-{
-    if(count($argv) == 2 && $argv[1] == "--help")
-    {
-        print("This is a help for parser.php\n");
-        print("Application converts code in IPPcode19 from STDIN to its XML representation and prints it on STDOUT.");
-    }
-}
 
-
-check_help($argv);
 //Start reading from STDIN and check for header .IPPcode19
-//$f = fopen( 'php://stdin', 'r' );
+$f = fopen( 'php://stdin', 'r' );
     /*For long code use this and paste the code to input.txt file:
         only for dev, will be deleted*/
-    $f = fopen( 'input.txt', 'r' );
+    //$f = fopen( 'input.txt', 'r' );
 $xml_output = new SimpleXMLElement("<?xml version=\"1.0\" encoding=\"utf-8\"?><program language='IPPcode19'></program>"); //set xml output
 
 //Checking header
