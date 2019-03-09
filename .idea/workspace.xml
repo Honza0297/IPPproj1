@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e5ddeb2d-fae2-41a6-bf3c-1480db107593" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/parse.php" beforeDir="false" afterPath="$PROJECT_DIR$/parse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/parse.php" beforeDir="false" afterPath="$PROJECT_DIR$/release/parse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/release/xberan43.zip" beforeDir="false" afterPath="$PROJECT_DIR$/release/xberan43.zip" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parse.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="347" selection-start-line="347" selection-end-line="347" />
+            <state relative-caret-position="248">
+              <caret line="86" column="73" selection-start-line="86" selection-start-column="64" selection-end-line="86" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -31,9 +33,7 @@
       <find>label</find>
       <find>literal</find>
       <find>two_op</find>
-      <find>check</find>
       <find>three</find>
-      <find>two</find>
       <find>thre</find>
       <find>print(&quot;m</find>
       <find>throw</find>
@@ -41,16 +41,29 @@
       <find>prin</find>
       <find>print_r</find>
       <find>throw_</find>
+      <find>check</find>
+      <find>string</find>
+      <find>stdin</find>
+      <find>fgets</find>
+      <find>two</find>
+      <find>jumpif</find>
+      <find>jumpifneq</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Dev" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/parser.php" />
         <option value="$PROJECT_DIR$/parse.php" />
+        <option value="$PROJECT_DIR$/release/parse.php" />
       </list>
     </option>
   </component>
@@ -59,10 +72,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="351" />
+    <option name="x" value="-12" />
     <option name="y" value="-12" />
-    <option name="width" value="983" />
-    <option name="height" value="1054" />
+    <option name="width" value="1939" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -88,10 +101,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/parser.php" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../PHP/php.exe" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -106,7 +125,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="IPPproj1" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/parser.php">
+    <configuration name="IPPproj1" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/parse.php">
       <method v="2" />
     </configuration>
   </component>
@@ -139,22 +158,34 @@
       <workItem from="1551274489727" duration="11000" />
       <workItem from="1551274509903" duration="2003000" />
       <workItem from="1551279285411" duration="1049000" />
+      <workItem from="1551612815154" duration="4533000" />
+      <workItem from="1551687299041" duration="78000" />
+      <workItem from="1551707774215" duration="1877000" />
+      <workItem from="1551780097914" duration="3644000" />
+      <workItem from="1551794967133" duration="1455000" />
+      <workItem from="1551859529718" duration="97000" />
+      <workItem from="1551860957097" duration="736000" />
+      <workItem from="1551907717720" duration="1139000" />
+      <workItem from="1551972714887" duration="3319000" />
+      <workItem from="1552042585880" duration="1340000" />
+      <workItem from="1552127478637" duration="1275000" />
+      <workItem from="1552144139408" duration="1218000" />
+      <workItem from="1552155268558" duration="38000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53310000" />
+    <option name="totallyTimeSpent" value="75652000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1753" height="954" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12743363" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20884956" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2563791" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.27946538" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.399757" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -174,22 +205,18 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/parser.php">
+    <entry file="file://$PROJECT_DIR$/parser.php" />
+    <entry file="file://$PROJECT_DIR$/release/parse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
-          <folding>
-            <element signature="n#blankline#0;n#!!top" />
-            <element signature="n#throw_err#0;n#!!top" />
-            <element signature="n#check_num_of_operands#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="248">
+          <caret line="86" column="57" selection-start-line="86" selection-start-column="57" selection-end-line="86" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/parse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="347" selection-start-line="347" selection-end-line="347" />
+        <state relative-caret-position="248">
+          <caret line="86" column="73" selection-start-line="86" selection-start-column="64" selection-end-line="86" selection-end-column="73" />
         </state>
       </provider>
     </entry>

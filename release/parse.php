@@ -19,8 +19,8 @@ define("TYPE", "type");
 
 //Global stuff here:
 
-$three_arg_opcodes = array("ADD", "SUB", "MUL", "IDIV", "LT", "GT", "EQ", "AND", "OR", "NOT", "STRI2INT", "CONCAT", "GETCHAR", "SETCHAR", "JUMPIFEQ", "JUMPIFNEQ"); # jumps have label sym sym, others have var sym sym
-$two_arg_opcodes = array("MOVE", "INT2CHAR", "READ", "STRLEN", "TYPE"); # move, inttochar, strlen  = var sym, read = var type,
+$three_arg_opcodes = array("ADD", "SUB", "MUL", "IDIV", "LT", "GT", "EQ", "AND", "OR", "STRI2INT", "CONCAT", "GETCHAR", "SETCHAR", "JUMPIFEQ", "JUMPIFNEQ"); # jumps have label sym sym, others have var sym sym
+$two_arg_opcodes = array("MOVE", "INT2CHAR", "READ", "STRLEN", "NOT", "TYPE"); # move, inttochar, strlen  = var sym, read = var type,
 $one_arg_opcodes = array("DEFVAR", "CALL", "PUSHS", "POPS", "WRITE", "LABEL", "JUMP", "EXIT", "DPRINT");
 $no_arg_opcodes = array("CREATEFRAME", "PUSHFRAME", "POPFRAME", "RETURN", "BREAK" );
 
@@ -37,8 +37,6 @@ function check_header($line)
         fwrite(STDERR, "Bad or missing header \".IPPcode19\" in input! Current one is ".$line);
         throw_err(ERR_HEADER);
     }
-    print("----------------------------\n");
-    print("Header found\n");
     return;
 }
 
@@ -79,30 +77,14 @@ function check_num_of_operands($splitted_line, $num_of_operands)
 }
 
 /**
- * Ladicí funkce. Bude ostraněna pri release.
- * @param $splitted_line
- * @param $num_of_operands
- */
-function print_info($splitted_line, $num_of_operands)
-{
-    print("----------------------------\n");
-    print($num_of_operands."-operand instruction: ".$splitted_line[0]."\n");
-    for ($n = 1; $n < $num_of_operands+1;$n++) #this weird indexing because first operands has index 1
-    {
-        print("Operand number ".$n.": ".$splitted_line[$n]."\n");
-    }
-}
-
-/**
  * Checks everything about three-op opcodes.
  * @param $splitted_line: Opcode with operands
  * @return int
  */
 function three_op_check($splitted_line)
 {
-    print_info($splitted_line, 3);
     if($err_code = check_num_of_operands($splitted_line, 3)) return $err_code;
-    if($splitted_line[0] == "JUMPIFEQ" || $splitted_line == "JUMPIFNEQ")
+    if($splitted_line[0] == "JUMPIFEQ" || $splitted_line[0] == "JUMPIFNEQ")
     {
         if($err_code = check_syntax(LABEL, $splitted_line[1])) return $err_code;
     }
@@ -124,7 +106,6 @@ function three_op_check($splitted_line)
  */
 function two_op_check($splitted_line)
 {
-    print_info($splitted_line, 2);
     if($err_code = check_num_of_operands($splitted_line, 2)) return $err_code;
 
     if($err_code = check_var($splitted_line[1])) return $err_code;
@@ -135,6 +116,7 @@ function two_op_check($splitted_line)
     }
     else
     {
+
         if($err_code = check_syntax(SYMBOL, $splitted_line[2])) return $err_code;
 
     }
@@ -149,7 +131,6 @@ function two_op_check($splitted_line)
  */
 function one_op_check($splitted_line)
 {
-    print_info($splitted_line, 1);
     if($err_code = check_num_of_operands($splitted_line, 1)) return $err_code;
     switch($splitted_line[0])
     {
@@ -178,9 +159,8 @@ function one_op_check($splitted_line)
  */
 function no_op_check($splitted_line)
 {
-    print_info($splitted_line, 0);
     if($err_code = check_num_of_operands($splitted_line, 0)) return $err_code;
-   return 0; ##if err, this is the cause
+    return 0; ##if err, this is the cause
 }
 
 /**
@@ -193,7 +173,9 @@ function prepare_line($line)
     $line = explode("#", $line)[0];
     $line = trim($line);
     $line = preg_replace("([\t ]+)", " ", $line);
-    return explode(" ", $line); # split by " "
+    $line = explode(" ", $line); # split by " "
+    $line[0] = strtoupper($line[0]);
+    return $line;
 }
 
 /**
@@ -227,7 +209,8 @@ function check_var($var)
  */
 function check_literal($var)
 {
-    if(preg_match("(int@-?[0-9]+|bool@(true|false)|nil@nil|string@[\\\\\w]+)", $var))
+
+    if(preg_match("(int@-?[0-9]+|bool@(true|false)|nil@nil|string@[^#\s]+)", $var))
         return 0;
 
     return ERR_LEX_SYN;
@@ -328,8 +311,8 @@ function add_instruction(object $xml_tree, $opcode, $order)
 {
     $instruction = $xml_tree->addChild("instruction"); #druhy argument = element uvnitr: <> toto<>
     /** @var object $instruction */
-    $instruction->addAttribute("opcode",$opcode);
     $instruction->addAttribute("order", $order);
+    $instruction->addAttribute("opcode",$opcode);
     return $instruction;
 }
 
@@ -342,7 +325,7 @@ function add_instruction(object $xml_tree, $opcode, $order)
 function add_argument(object $instruction, $argname, $arg_value)
 {
     $type = arg_get_type($arg_value);
-    $arg = $instruction->addChild($argname, arg_get_value($arg_value, $type));
+    $arg = $instruction->addChild($argname, htmlspecialchars(arg_get_value($arg_value, $type)));
     /** @var object $arg */
     $arg->addAttribute("type",$type);
 }
@@ -355,30 +338,35 @@ function check_help($argv)
 {
     if(count($argv) == 2 && $argv[1] == "--help")
     {
-        print("This is a help for parser.php\n");
-        print("Application converts code in IPPcode19 from STDIN to its XML representation and prints it on STDOUT.");
+        print("Toto je napoveda pro skript parse.php\n");
+        print("Skript typu filtr nacte ze standardniho vstupu zdrojovy kod v IPPcode19, zkontroluje lexikalni a syntaktickou spravnost kodu a vypise na standardni
+vystup XML reprezentaci programu dle specifikace. \n");
+        print("Aplikace prijima jediny parametr, --help, po jehoz zadani se vypise kratka napoveda a popis programu.\\");
+        exit(0);
     }
 }
 
 
 check_help($argv);
-//Start reading from STDIN and check for header .IPPcode19
-$f = fopen( 'php://stdin', 'r' );
-    /*For long code use this and paste the code to input.txt file:
-        only for dev, will be deleted*/
-    //$f = fopen( 'input.txt', 'r' );
-$xml_output = new SimpleXMLElement("<?xml version=\"1.0\" encoding=\"utf-8\"?><program language='IPPcode19'></program>"); //set xml output
+$xml_output = new SimpleXMLElement("<?xml version=\"1.0\" encoding=\"UTF-8\"?><program language='IPPcode19'></program>"); //set xml output
 
 //Checking header
-$line = prepare_line(fgets($f));
+$line = prepare_line(fgets(STDIN));
 if(count($line) == 1) check_header($line[0]);
 else throw_err(ERR_HEADER);
 
-
 $err = 0;
 $counter = 1;
-while($line = fgets($f)) {
+while($line = fgets(STDIN)) {
     $splitted_line = prepare_line($line);
+
+    # this feature for getting rid of blanklines. Not the best way, but OK
+    $line = implode($splitted_line);
+    if($line == "" || blankline($line)) #If there is a comment or a blankline (only whitespaces)
+    {
+        continue;
+    }
+
     $instruction = add_instruction($xml_output, $splitted_line[0], $counter);
     $counter++;
 
@@ -402,20 +390,10 @@ while($line = fgets($f)) {
     }
     else
     {
-        $line = implode($splitted_line);
-        if($line == "" || blankline($line)) #If there is a comment or a blankline (only whitespaces)
-        {
-            print("----------------------------\n");
-            print("Commentary or a blankline:".$line."\n");
-            continue;
-        }
         throw_err(ERR_LEX_SYN);
     }
 }
 
-print("----------------------------\n");
-
-print(preg_replace("(><)",">\n<", $xml_output->asXML()));
-
-fclose($f);
+print(str_replace("><",">\n<", $xml_output->asXML()));
+//fclose($f);
 exit(0);

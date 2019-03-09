@@ -19,8 +19,8 @@ define("TYPE", "type");
 
 //Global stuff here:
 
-$three_arg_opcodes = array("ADD", "SUB", "MUL", "IDIV", "LT", "GT", "EQ", "AND", "OR", "NOT", "STRI2INT", "CONCAT", "GETCHAR", "SETCHAR", "JUMPIFEQ", "JUMPIFNEQ"); # jumps have label sym sym, others have var sym sym
-$two_arg_opcodes = array("MOVE", "INT2CHAR", "READ", "STRLEN", "TYPE"); # move, inttochar, strlen  = var sym, read = var type,
+$three_arg_opcodes = array("ADD", "SUB", "MUL", "IDIV", "LT", "GT", "EQ", "AND", "OR", "STRI2INT", "CONCAT", "GETCHAR", "SETCHAR", "JUMPIFEQ", "JUMPIFNEQ"); # jumps have label sym sym, others have var sym sym
+$two_arg_opcodes = array("MOVE", "INT2CHAR", "READ", "STRLEN", "NOT", "TYPE"); # move, inttochar, strlen  = var sym, read = var type,
 $one_arg_opcodes = array("DEFVAR", "CALL", "PUSHS", "POPS", "WRITE", "LABEL", "JUMP", "EXIT", "DPRINT");
 $no_arg_opcodes = array("CREATEFRAME", "PUSHFRAME", "POPFRAME", "RETURN", "BREAK" );
 
@@ -84,7 +84,7 @@ function check_num_of_operands($splitted_line, $num_of_operands)
 function three_op_check($splitted_line)
 {
     if($err_code = check_num_of_operands($splitted_line, 3)) return $err_code;
-    if($splitted_line[0] == "JUMPIFEQ" || $splitted_line == "JUMPIFNEQ")
+    if($splitted_line[0] == "JUMPIFEQ" || $splitted_line[0] == "JUMPIFNEQ")
     {
         if($err_code = check_syntax(LABEL, $splitted_line[1])) return $err_code;
     }
@@ -116,7 +116,9 @@ function two_op_check($splitted_line)
     }
     else
     {
+
         if($err_code = check_syntax(SYMBOL, $splitted_line[2])) return $err_code;
+
     }
 
     return $err_code;
@@ -171,7 +173,9 @@ function prepare_line($line)
     $line = explode("#", $line)[0];
     $line = trim($line);
     $line = preg_replace("([\t ]+)", " ", $line);
-    return explode(" ", $line); # split by " "
+    $line = explode(" ", $line); # split by " "
+    $line[0] = strtoupper($line[0]);
+    return $line;
 }
 
 /**
@@ -205,7 +209,8 @@ function check_var($var)
  */
 function check_literal($var)
 {
-    if(preg_match("(int@-?[0-9]+|bool@(true|false)|nil@nil|string@[\\\\\w]+)", $var))
+
+    if(preg_match("(int@-?[0-9]+|bool@(true|false)|nil@nil|string@[^#\s]+)", $var))
         return 0;
 
     return ERR_LEX_SYN;
@@ -306,8 +311,8 @@ function add_instruction(object $xml_tree, $opcode, $order)
 {
     $instruction = $xml_tree->addChild("instruction"); #druhy argument = element uvnitr: <> toto<>
     /** @var object $instruction */
-    $instruction->addAttribute("opcode",$opcode);
     $instruction->addAttribute("order", $order);
+    $instruction->addAttribute("opcode",$opcode);
     return $instruction;
 }
 
@@ -320,7 +325,7 @@ function add_instruction(object $xml_tree, $opcode, $order)
 function add_argument(object $instruction, $argname, $arg_value)
 {
     $type = arg_get_type($arg_value);
-    $arg = $instruction->addChild($argname, arg_get_value($arg_value, $type));
+    $arg = $instruction->addChild($argname, htmlspecialchars(arg_get_value($arg_value, $type)));
     /** @var object $arg */
     $arg->addAttribute("type",$type);
 }
@@ -343,22 +348,25 @@ vystup XML reprezentaci programu dle specifikace. \n");
 
 
 check_help($argv);
-//Start reading from STDIN and check for header .IPPcode19
-
-$f = fopen( 'php://stdin', 'r' );
-
-$xml_output = new SimpleXMLElement("<?xml version=\"1.0\" encoding=\"utf-8\"?><program language='IPPcode19'></program>"); //set xml output
+$xml_output = new SimpleXMLElement("<?xml version=\"1.0\" encoding=\"UTF-8\"?><program language='IPPcode19'></program>"); //set xml output
 
 //Checking header
-$line = prepare_line(fgets($f));
+$line = prepare_line(fgets(STDIN));
 if(count($line) == 1) check_header($line[0]);
 else throw_err(ERR_HEADER);
 
-
 $err = 0;
 $counter = 1;
-while($line = fgets($f)) {
+while($line = fgets(STDIN)) {
     $splitted_line = prepare_line($line);
+
+    # this feature for getting rid of blanklines. Not the best way, but OK
+    $line = implode($splitted_line);
+    if($line == "" || blankline($line)) #If there is a comment or a blankline (only whitespaces)
+    {
+        continue;
+    }
+
     $instruction = add_instruction($xml_output, $splitted_line[0], $counter);
     $counter++;
 
@@ -382,14 +390,10 @@ while($line = fgets($f)) {
     }
     else
     {
-        $line = implode($splitted_line);
-        if($line == "" || blankline($line)) #If there is a comment or a blankline (only whitespaces)
-        {
-            continue;
-        }
         throw_err(ERR_LEX_SYN);
     }
 }
-print(preg_replace("(><)",">\n<", $xml_output->asXML()));
-fclose($f);
+
+print(str_replace("><",">\n<", $xml_output->asXML()));
+//fclose($f);
 exit(0);
