@@ -3,9 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e5ddeb2d-fae2-41a6-bf3c-1480db107593" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EveryInstruction.src" beforeDir="false" afterPath="$PROJECT_DIR$/EveryInstruction.src" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/dokumentace.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/dokumentace.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/readme1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/doc/readme1.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/readme1.tex" beforeDir="false" afterPath="$PROJECT_DIR$/doc/readme1.tex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/parse.php" beforeDir="false" afterPath="$PROJECT_DIR$/parse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/parse.php" beforeDir="false" afterPath="$PROJECT_DIR$/release/parse.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/xberan43.zip" beforeDir="false" afterPath="$PROJECT_DIR$/release/xberan43.zip" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/parse.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="86" column="73" selection-start-line="86" selection-start-column="64" selection-end-line="86" selection-end-column="73" />
+            <state relative-caret-position="53">
+              <caret line="324" column="4" selection-start-line="324" selection-start-column="4" selection-end-line="324" selection-end-column="96" />
             </state>
           </provider>
         </entry>
@@ -48,7 +51,17 @@
       <find>two</find>
       <find>jumpif</find>
       <find>jumpifneq</find>
+      <find>STD</find>
+      <find>jumpifne</find>
+      <find>print</find>
+      <find>exit(</find>
+      <find>function e</find>
+      <find>thro</find>
+      <find>if</find>
     </findStrings>
+    <replaceStrings>
+      <replace>exit</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,20 +75,21 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/parser.php" />
-        <option value="$PROJECT_DIR$/parse.php" />
         <option value="$PROJECT_DIR$/release/parse.php" />
+        <option value="$PROJECT_DIR$/parse.php" />
       </list>
     </option>
   </component>
+  <component name="PhpDebugGeneral" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" zd_debug_can_accept_external_connections="false" />
   <component name="PhpServers">
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="y" value="-12" />
-    <option name="width" value="1939" />
-    <option name="height" value="1057" />
+    <option name="x" value="-15" />
+    <option name="y" value="-15" />
+    <option name="width" value="1943" />
+    <option name="height" value="1060" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -85,6 +99,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -96,7 +111,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -110,7 +124,7 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -171,21 +185,24 @@
       <workItem from="1552127478637" duration="1275000" />
       <workItem from="1552144139408" duration="1218000" />
       <workItem from="1552155268558" duration="38000" />
+      <workItem from="1552155597632" duration="7000" />
+      <workItem from="1552287233745" duration="12307000" />
+      <workItem from="1552373542142" duration="2809000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75652000" />
+    <option name="totallyTimeSpent" value="90775000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1753" height="954" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20884956" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21592921" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.27946538" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.7108141" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.399757" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -215,8 +232,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parse.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="86" column="73" selection-start-line="86" selection-start-column="64" selection-end-line="86" selection-end-column="73" />
+        <state relative-caret-position="53">
+          <caret line="324" column="4" selection-start-line="324" selection-start-column="4" selection-end-line="324" selection-end-column="96" />
         </state>
       </provider>
     </entry>

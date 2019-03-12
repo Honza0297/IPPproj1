@@ -1,0 +1,8 @@
+.IPPcode19
+DEFVAR GF@a
+MOVE GF@a int@10
+LABEL cycle
+SUB GF@a GF@a int@1
+WRITE GF@a
+JUMPIFNEQ cycle GF@a int@0
+EXIT int@0

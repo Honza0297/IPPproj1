@@ -1,0 +1,17 @@
+.IPPcode19
+LABEL fun1
+CREATEFRAME
+PUSHFRAME
+DEFVAR LF@a
+WRITE string@Zadejte\032cislo:
+READ LF@a int
+LABEL cyklus
+IDIV LF@a LF@a int@2
+JUMPIFEQ sudy LF@a int@0
+JUMPIFEQ lichy LF@a int@1
+JUMP cyklus
+LABEL sudy
+WRITE string@Cislo\032je\032sude
+EXIT int@0
+LABEL lichy
+WRITE string@Cislo\032je\032liche

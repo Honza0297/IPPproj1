@@ -21,6 +21,10 @@
 \fancyhead[R]{\scalebox{0.5}{\includegraphics{logo.png}}}
 \fancyhead[L]{\Large Jan Beran\\ \texttt{xberan43}\\ \today}
 
+\setlength{\parindent}{0mm}
+\large{\textbf{Implementační dokumentace k 1. úloze do IPP 2018/2019}}\\\
+\large{\textbf{Jméno a příjmení: Jan Beran}}\\\
+\large{\textbf{Login: xberan43}}\\\
 
 \large{\textbf{Úvod}}\\\
 Tato dokumentace stručně popisuje skript parse.php, který je součástí odevzdání.\\
@@ -31,12 +35,12 @@ Zadáním bylo vytvořit skript typu filtr, který převede vstupný kód v jazy
 \large{{\textbf{Implementace}}\\
 Skript je implementován funkcionálně, bez použití objektového návrhu.\\
 Vzhledem k jednoduchosti jazyka IPPcode19 zde nebyla použita žádná gramatika ani konečněstavové řízení, místo něj je zde použita kombinace regulárních výrazů a klasické rozhodovací logiky. \\
-Skript sám přijímá jediný parametr, --help, po jehož zadání se vypíše krátká nápověda a popis programu.\\
+Skript sám přijímá jediný parametr, -{}-help, po jehož zadání se vypíše krátká nápověda a popis programu.\\
 Pro generování XML je využito SimpleXML a výsledný XML kód je pro větši přehlednost tisknut se zalomením konce řádku po každé XML značce. Tato XML reprezentace je generována v průběhu analýzy, ovšem k samotnému zobrazení na standardním výstupu dochází až poté, co je dokončená analýza. \\
 Chybové stavy jsou ošetřeny standardně dle zadání, tedy ukončením skriptu a vrácením příslušného návratového kódu.\\
 
 \large{{\textbf{Spouštění aplikace}}\\
-Aplikace se spouští buď bezparametricky nebo s parametrem --help, který vypíše krátkou nápovědu. Pokud je skript spuštěn bez něj, poté na standardním vstupu očekává kód v jazyce IPPcode19 včetně jeho hlavičky. K výpisu XML kódu na standardní výstup dojde až ve chvíli, kdy je dokončeno zadávání vstupního kódu.\\ 
+Aplikace se spouští buď bezparametricky nebo s parametrem -{}-help, který vypíše krátkou nápovědu. Pokud je skript spuštěn bez něj, poté na standardním vstupu očekává kód v jazyce IPPcode19 včetně jeho hlavičky. K výpisu XML kódu na standardní výstup dojde až ve chvíli, kdy je dokončeno zadávání vstupního kódu.\\ 
 
 
 \large{{\textbf{Závěr}}\\

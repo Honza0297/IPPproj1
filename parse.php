@@ -35,7 +35,7 @@ function check_header($line)
     if ($line != $input_header)
     {
         fwrite(STDERR, "Bad or missing header \".IPPcode19\" in input! Current one is ".$line);
-        throw_err(ERR_HEADER);
+        exit(ERR_HEADER);
     }
     return;
 }
@@ -48,15 +48,6 @@ function check_header($line)
 function blankline($str)
 {
     return preg_match("([\t ]+)", $str) == 1;
-}
-
-/**
- * Throws an error. May be upgrades during time.
- * * @param $err_code: err code for throwing
- */
-function throw_err($err_code)
-{
-    exit($err_code);
 }
 
 /**
@@ -83,17 +74,20 @@ function check_num_of_operands($splitted_line, $num_of_operands)
  */
 function three_op_check($splitted_line)
 {
-    if($err_code = check_num_of_operands($splitted_line, 3)) return $err_code;
+    $err_code = check_num_of_operands($splitted_line, 3);
+    if($err_code) return $err_code;
     if($splitted_line[0] == "JUMPIFEQ" || $splitted_line[0] == "JUMPIFNEQ")
     {
-        if($err_code = check_syntax(LABEL, $splitted_line[1])) return $err_code;
+        $err_code = check_syntax(LABEL, $splitted_line[1]);
+        if($err_code) return $err_code;
     }
     else
     {
-        if($err_code = check_syntax(VARIABLE, $splitted_line[1])) return $err_code;
+        $err_code = check_syntax(VARIABLE, $splitted_line[1]);
+        if($err_code) return $err_code;
     }
-
-    if ($err_code = check_syntax(SYMBOL, $splitted_line[2])) return $err_code;
+    $err_code = check_syntax(SYMBOL, $splitted_line[2]);
+    if ($err_code) return $err_code;
 
     check_syntax(SYMBOL, $splitted_line[3]); #Here we are returning $err_code every time, no need to if it like the others
     return $err_code;
@@ -106,18 +100,21 @@ function three_op_check($splitted_line)
  */
 function two_op_check($splitted_line)
 {
-    if($err_code = check_num_of_operands($splitted_line, 2)) return $err_code;
+    if($err_code = check_num_of_operands($splitted_line, 2))
+        return $err_code;
 
     if($err_code = check_var($splitted_line[1])) return $err_code;
 
     if($splitted_line[0] == "READ") #No need to check $err_code, returning in every case
     {
-       if($err_code = check_syntax(TYPE, $splitted_line[2])) return $err_code;
+       if($err_code = check_syntax(TYPE, $splitted_line[2]))
+           return $err_code;
     }
     else
     {
 
-        if($err_code = check_syntax(SYMBOL, $splitted_line[2])) return $err_code;
+        if($err_code = check_syntax(SYMBOL, $splitted_line[2]))
+            return $err_code;
 
     }
 
@@ -353,7 +350,7 @@ $xml_output = new SimpleXMLElement("<?xml version=\"1.0\" encoding=\"UTF-8\"?><p
 //Checking header
 $line = prepare_line(fgets(STDIN));
 if(count($line) == 1) check_header($line[0]);
-else throw_err(ERR_HEADER);
+else exit(ERR_HEADER);
 
 $err = 0;
 $counter = 1;
@@ -371,26 +368,30 @@ while($line = fgets(STDIN)) {
     $counter++;
 
     if(in_array($splitted_line[0], $three_arg_opcodes)){
-        if ($err = three_op_check($splitted_line) != 0) throw_err($err);
+        $err = three_op_check($splitted_line);
+        if ($err  != 0) exit($err);
         add_argument($instruction, "arg1", $splitted_line[1]);
         add_argument($instruction, "arg2", $splitted_line[2]);
         add_argument($instruction, "arg3", $splitted_line[3]);
     }
     elseif(in_array($splitted_line[0], $two_arg_opcodes)){
-        if ($err = two_op_check($splitted_line) != 0) throw_err($err);
+        $err = two_op_check($splitted_line);
+        if ($err  != 0) exit($err);
         add_argument($instruction, "arg1", $splitted_line[1]);
         add_argument($instruction, "arg2", $splitted_line[2]);
     }
     elseif(in_array($splitted_line[0], $one_arg_opcodes)){
-        if ($err = one_op_check($splitted_line) != 0) throw_err($err);
+        $err = one_op_check($splitted_line);
+        if ($err != 0) exit($err);
         add_argument($instruction, "arg1", $splitted_line[1]);
     }
     elseif(in_array($splitted_line[0], $no_arg_opcodes)){
-        if ($err = no_op_check($splitted_line) != 0) throw_err($err);
+        $err = no_op_check($splitted_line);
+        if ($err != 0) exit($err);
     }
     else
     {
-        throw_err(ERR_LEX_SYN);
+        exit(ERR_LEX_SYN);
     }
 }
 
